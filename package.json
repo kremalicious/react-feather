@@ -11,7 +11,8 @@
     "compile": "rm -rf src/icons && node bin/build.js",
     "build:bundle": "rm -rf build && rollup --config rollup.config.js",
     "build:es": "rm -rf dist && babel src --out-dir dist --copy-files",
-    "build": "concurrently \"npm:build:*\""
+    "build": "concurrently \"npm:build:*\"",
+    "release": "release-it"
   },
   "files": [
     "dist",
@@ -51,6 +52,7 @@
     "eslint-plugin-react": "^7.29.4",
     "feather-icons": "^4.28.0",
     "prettier-eslint": "^14.0.2",
+    "release-it": "^14.14.1",
     "rollup": "^2.72.1",
     "rollup-plugin-babel": "^4.4.0",
     "uppercamelcase": "^3.0.0"
@@ -60,5 +62,16 @@
   },
   "dependencies": {
     "prop-types": "^15.8.1"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    }
   }
 }
